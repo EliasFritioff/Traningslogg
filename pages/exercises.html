@@ -45,7 +45,6 @@
 
   <script src="../js/exercises.js"></script>
 
-  <!-- Din modal- och formscript -->
   <script>
     // Modal funktionalitet
     const openModalBtn = document.getElementById("openModalBtn");
@@ -83,7 +82,7 @@
 
         const result = await res.json();
         if (res.ok) {
-          window.location.href = "/pages/exercises.html"; // 👈 Redirect till övningslista
+          window.location.href = "/pages/exercises.html"; // Redirect till övningslista
         } else {
           statusMsg.textContent = "❌ Fel: " + result.error;
         }
