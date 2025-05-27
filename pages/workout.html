@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Workout</title>
+  <link rel="stylesheet" href="../css/workout.css" />
+  <script src="../js/script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="../img/Logo.png" alt="GymLogger Logo">
+      <ul class="primary-navigation">
+        <li><a href="profile.html">Profile</a></li>
+        <li><a class="active" href="workout.html">Workout</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="exercises.html">Exercises</a></li>
+      </ul>      
+    </nav>
+  </header>
+
+  <main>
+    <h2>New workout</h2>
+    <p><strong>Status:</strong> <span id="timer">00:00:00</span></p>
+
+      <div id="workoutContainer"></div>
+
+    <div class="buttons">
+      <button class="btn blue">Add Exercises</button>
+      <button class="btn red">Cancel Workout</button>
+      <button class="btn green">Save Workout</button>
+    </div>
+  </main>
+  <div id="exerciseModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Välj en övning</h2>
+      <input type="text" id="exerciseSearch" placeholder="Sök övning..." />
+      <ul id="exerciseList"></ul>
+    </div>
+  </div>
+</body>
+</html>

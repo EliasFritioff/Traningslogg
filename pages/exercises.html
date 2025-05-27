@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Exercises</title>
+  <link rel="stylesheet" href="../css/exercises.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <img src="../img/Logo.png" alt="GymLogger Logo">
+      <ul class="primary-navigation">
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="workout.html">Workout</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a class="active" href="exercises.html">Exercises</a></li>
+      </ul>      
+    </nav>
+  </header>
+
+  <main>
+    <h1>Exercises</h1>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search">
+      <button id="openModalBtn">Add new exercise</button>
+    </div>
+
+    <ul id="exercise-list"></ul>
+
+    <!-- Modal -->
+    <div id="exerciseModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-button" id="closeModalBtn">&times;</span>
+        <h2>Create new exercise</h2>
+        <form id="exerciseForm">
+          <input type="text" id="name" placeholder="Exercise name" required />
+          <input type="text" id="equipment" placeholder="Equipment (e.g. Dumbbell)" required />
+          <input type="text" id="bodyPart" placeholder="Muscle group (e.g. Chest)" required />
+          <button type="submit">Save Exercise</button>
+        </form>
+        <p id="statusMsg"></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/exercises.js"></script>
+
+  <!-- Din modal- och formscript -->
+  <script>
+    // Modal funktionalitet
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modal = document.getElementById("exerciseModal");
+
+    openModalBtn.addEventListener("click", () => modal.classList.remove("hidden"));
+    closeModalBtn.addEventListener("click", () => modal.classList.add("hidden"));
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.add("hidden");
+    });
+
+    // Formulärhantering
+    document.getElementById("exerciseForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const equipment = document.getElementById("equipment").value.trim();
+      const bodyPart = document.getElementById("bodyPart").value.trim();
+      const statusMsg = document.getElementById("statusMsg");
+
+      if (!name || !equipment || !bodyPart) {
+        statusMsg.textContent = "Alla fält måste fyllas i.";
+        return;
+      }
+
+      const newExercise = { name, equipment, bodyPart };
+
+      try {
+        const res = await fetch("/api/exercises", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newExercise)
+        });
+
+        const result = await res.json();
+        if (res.ok) {
+          window.location.href = "/pages/exercises.html"; // 👈 Redirect till övningslista
+        } else {
+          statusMsg.textContent = "❌ Fel: " + result.error;
+        }
+      } catch (err) {
+        statusMsg.textContent = "❌ Fel vid anslutning till servern.";
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>

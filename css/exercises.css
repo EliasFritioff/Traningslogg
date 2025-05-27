@@ -1,0 +1,146 @@
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  background-color: #FAFAFA;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: #006A71;
+  padding: 0 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #f2efe7;
+}
+
+nav .active {
+  font-weight: bold;
+}
+
+main {
+  padding: 20px;
+}
+
+.primary-navigation {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  list-style: none;
+  margin: 0;
+}
+
+.primary-navigation li {
+  margin: 0 15px;
+}
+
+img {
+  max-width: 125px;
+  max-height: fit-content;
+}
+
+a {
+  text-decoration: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+ul#exercise-list {
+  list-style: none;
+  padding: 0;
+}
+
+.controls, .filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#exercise-list li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* ==== Modal Styling (läggs till) ==== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+#exerciseForm input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#exerciseForm button {
+  padding: 0.6rem 1.2rem;
+  background-color: #006A71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#exerciseForm button:hover {
+  background-color: #006971db;
+}
+
+#statusMsg {
+  margin-top: 10px;
+  color: red;
+}

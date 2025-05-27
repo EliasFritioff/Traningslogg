@@ -1,0 +1,65 @@
+[
+  {
+    "date": "Mon May 19 2025",
+    "exercises": [
+      {
+        "name": "Bench Press",
+        "sets": 5,
+        "reps": 10,
+        "weight": 80
+      }
+    ]
+  },
+  {
+    "date": "Mon May 19 2025",
+    "exercises": [
+      {
+        "name": "Squat",
+        "sets": 3,
+        "reps": 12,
+        "weight": 60
+      },
+      {
+        "name": "Deadlift",
+        "sets": 3,
+        "reps": 15,
+        "weight": 80
+      },
+      {
+        "name": "Machine Chest Press",
+        "sets": 3,
+        "reps": 12,
+        "weight": 85
+      }
+    ]
+  },
+  {
+    "date": "Mon May 19 2025",
+    "exercises": [
+      {
+        "name": "Bench Press",
+        "sets": 3,
+        "reps": 13,
+        "weight": 70
+      },
+      {
+        "name": "Squat",
+        "sets": 1,
+        "reps": 9,
+        "weight": 71
+      },
+      {
+        "name": "Pull-Up",
+        "sets": 2,
+        "reps": 7,
+        "weight": 70
+      },
+      {
+        "name": "Calf Raise",
+        "sets": 3,
+        "reps": 9,
+        "weight": 21
+      }
+    ]
+  }
+]
